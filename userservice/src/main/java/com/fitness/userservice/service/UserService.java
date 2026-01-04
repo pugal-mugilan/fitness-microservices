@@ -1,6 +1,5 @@
 package com.fitness.userservice.service;
 
-import javax.management.RuntimeErrorException;
 
 import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,6 @@ import com.fitness.userservice.dto.RegisterRequestDTO;
 import com.fitness.userservice.dto.UserResponseDTO;
 import com.fitness.userservice.model.User;
 import com.fitness.userservice.repository.UserRepository;
-
-import jakarta.validation.Valid;
 
 @Service
 public class UserService {
@@ -63,6 +60,10 @@ public class UserService {
         response.setUpdatedAt(user.getUpdatedAt());
         return response;
 
+    }
+
+    public Boolean existByUserId(String userId) {
+        return userRepository.existsById(userId);
     }
     
 }
