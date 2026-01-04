@@ -1,9 +1,6 @@
 package com.fitness.activityservice.service;
 
 import java.util.List;
-
-import org.jspecify.annotations.Nullable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.fitness.activityservice.dto.ActivityRequestDTO;
@@ -17,8 +14,15 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ActivityService {
     private final ActivityRepository activityRepository;
+    private final UserValidationService userValidationService;
 
     public ActivityResponseDTO trackActivity(ActivityRequestDTO request){
+
+        boolean isValidUser = userValidationService.validateUser(request.getUserId());
+        if(!isValidUser){
+            throw new RuntimeException("Invalid user ID: " + request.getUserId());
+        }
+
         Activity activity = Activity.builder()
                             .userId(request.getUserId())
                             .type(request.getType())

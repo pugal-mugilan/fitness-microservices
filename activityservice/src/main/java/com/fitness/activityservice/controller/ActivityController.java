@@ -28,8 +28,7 @@ public class ActivityController {
     private ActivityService activityService;
     @PostMapping
     public ResponseEntity<ActivityResponseDTO> trackActivity(@RequestBody ActivityRequestDTO request ) {
-        //TODO: process POST request
-        
+
         return ResponseEntity.ok(activityService.trackActivity(request));
     }
 
