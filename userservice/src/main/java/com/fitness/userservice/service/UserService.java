@@ -10,7 +10,10 @@ import com.fitness.userservice.dto.UserResponseDTO;
 import com.fitness.userservice.model.User;
 import com.fitness.userservice.repository.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class UserService {
 
     @Autowired
@@ -63,6 +66,7 @@ public class UserService {
     }
 
     public Boolean existByUserId(String userId) {
+        log.info("Checking existence of user with ID: {}", userId);
         return userRepository.existsById(userId);
     }
     
