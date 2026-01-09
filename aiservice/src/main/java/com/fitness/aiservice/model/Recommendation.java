@@ -8,15 +8,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 
 @Document(collection = "recommendations")
 @Data
-@AllArgsConstructor
-@RequiredArgsConstructor
+@Builder
 public class Recommendation {
     @Id
     private String id;
