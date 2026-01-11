@@ -17,14 +17,13 @@ public class RecommendationService {
     private final RecommendationRepository recommendationRepository;
 
     public List<Recommendation> getUserRecommendations(String userId){
-        // Implementation logic to fetch and return recommendations for the user
+        return recommendationRepository.findByUserId(userId);
 
-
-        throw new UnsupportedOperationException("Unimplemented method 'getUserRecommendations'");
+        
     }
 
-    public List<Recommendation> getActivityRecommendations(String activityId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getActivityRecommendations'");
+    public Recommendation getActivityRecommendations(String activityId) {
+        return recommendationRepository.findByActivityId(activityId)
+        .orElseThrow(()-> new RuntimeException("Recommendation not found for activityId: " + activityId));
     }
 }
