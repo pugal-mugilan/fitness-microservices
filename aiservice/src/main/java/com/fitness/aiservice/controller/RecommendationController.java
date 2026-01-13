@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fitness.aiservice.dto.RecommendationResponseDTO;
 import com.fitness.aiservice.model.Recommendation;
 import com.fitness.aiservice.service.RecommendationService;
 
-import jakarta.ws.rs.core.Response;
 import lombok.RequiredArgsConstructor;
 
 @RestController
