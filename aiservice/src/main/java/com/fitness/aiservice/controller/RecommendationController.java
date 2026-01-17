@@ -30,4 +30,5 @@ public class RecommendationController {
         return ResponseEntity.ok(recommendationService.getActivityRecommendations(activityId));
     }
     
+    
 }
