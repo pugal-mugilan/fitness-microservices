@@ -1,6 +1,9 @@
 package com.fitness.activityservice.config;
 
+import org.apache.hc.core5.http.Message;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,5 +15,8 @@ public class RabbitMQConfig {
         return new Queue("activity.queue", true);
     }
 
-
+    @Bean
+    public MessageConverter messageConverter() {
+        return new Jackson2JsonMessageConverter();
+    }
 }
