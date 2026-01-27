@@ -1,9 +1,15 @@
 spring:
   application:
     name: activity-service
+  
   mongodb:
     uri: mongodb://localhost:27017/fitnessactivity
     database: fitnessactivity
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 server:
   port: 8082
